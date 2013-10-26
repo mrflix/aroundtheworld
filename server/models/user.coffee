@@ -26,8 +26,7 @@ class User extends Model
         pwhash: user.getSaltedHash data.password
       }, done
 
-  toJSON: -> 
-    _.omit @values, ['pwhash', '_rev']
+  toJSON: -> _.omit @values, ['pwhash', '_rev']
 
   getSaltedHash: (password) ->
     pwhash = crypto.createHash 'sha1'

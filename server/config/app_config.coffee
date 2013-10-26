@@ -3,8 +3,6 @@ express     = require('express')
 RedisStore  = require('connect-redis')(express)
 stylus      = require('stylus')
 nib         = require('nib')
-flash       = require('connect-flash')
-helmet      = require('helmet')
 config      = require '../config'
 
 module.exports = (app, auth) ->
@@ -12,16 +10,8 @@ module.exports = (app, auth) ->
     app.set 'view engine', 'jade'
     app.set 'views', "#{__dirname}/../views"
 
-    # security headers
-    app.use helmet.xframe()
-    app.use helmet.iexss()
-    app.use helmet.contentTypeOptions()    
-
     # static files
     app.use express.static "#{__dirname}/../../public"
-    
-    # use flash messages
-    app.use flash()
     
     # various express helpers
     app.use express.bodyParser()
@@ -44,9 +34,8 @@ module.exports = (app, auth) ->
 
     # set up locals for templates
     app.use (req, res, next) ->
-      res.locals.csrf_token = -> if req.session then req.session._csrf else undefined
+      res.locals.csrf_token = -> if req.session then req.csrfToken() else undefined
       res.locals.user = req.user?.values
-      res.locals.errorFlash = req.flash 'error'
       next()
 
     # initialize the router
