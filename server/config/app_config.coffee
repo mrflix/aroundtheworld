@@ -46,7 +46,6 @@ module.exports = (app, auth) ->
     app.use (req, res, next) ->
       res.locals.csrf_token = -> if req.session then req.session._csrf else undefined
       res.locals.user = req.user?.values
-      console.log req.user
       res.locals.errorFlash = req.flash 'error'
       next()
 
