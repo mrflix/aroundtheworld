@@ -34,10 +34,10 @@
     },
     {
       "type": "destination",
-      "name": "Gotland",
+      "name": "Visby",
       "location" : {
-        "lat":  57.468412,
-        "long": 18.486745
+        "lat":  57.634800,
+        "long": 18.294840
       }
     },
     {
