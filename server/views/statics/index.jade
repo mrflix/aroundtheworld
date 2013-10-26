@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  if user
+    p= user.username
+    a(href="/logout") Logout
+  else
+    p
+      a(href='/login') Login
+    p
+      a(href='/register') Register

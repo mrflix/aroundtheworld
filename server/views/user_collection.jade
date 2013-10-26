@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  
+  ng-view
+
+  div(ui-view='sidebar')
+
+  div(ui-view='content')
+
+  if locals.activeCollectionId
+    script.
+      window.activeCollectionId = !{JSON.stringify(locals.activeCollectionId)};
+
+  if locals.collectionsByUsername
+    script.
+      window.collectionsByUsername = !{JSON.stringify(locals.collectionsByUsername)};
+
+  if locals.contentByCollectionId
+    script.
+      window.contentByCollectionId = !{JSON.stringify(locals.contentByCollectionId)};
