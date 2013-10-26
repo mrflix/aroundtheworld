@@ -31,9 +31,9 @@ module.exports = (app, auth) ->
     # set up the session store
     app.use express.session
       secret: config.sessionSecret
-      # store: new RedisStore {port: config.redisPort}
-      # cookie:
-      #   maxAge: 604800000
+      store: new RedisStore {port: config.redisPort}
+      cookie:
+        maxAge: 604800000
 
     # initialize the auth module
     app.use auth.initialize()
