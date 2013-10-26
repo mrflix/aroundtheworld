@@ -1,6 +1,8 @@
 doctype 5
 title Around the World
 link(rel='stylesheet', href='/css/style.css')
+script.
+  var sections = !{JSON.stringify(trip.sections)};
 
 mixin uppercased(name)
   transport.charAt(0).toLocaleUpperCase() + transport.slice(1)
@@ -67,5 +69,10 @@ mixin uppercased(name)
                 if image.caption
                   figcaption= image.caption
 
+.mapHolder
+  #map
+
 script(src='/js/zepto.min.js')
+script(src='/js/leaflet.js')
+script(src='/js/map.js')
 script(src='/js/trip.js')

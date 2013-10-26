@@ -65,10 +65,23 @@ p {
   margin: 0 0 21px;
 }
 
+.mapHolder {
+  height: 100%;
+  position: fixed;
+  width: 40%;
+  right: 0;
+  top: 0;
+}
+  #map {
+    height: 100%;
+  }
+
 .arche {
-  max-width: 712px;
-  margin: 0 34px;
-  padding: 30px 0;
+  width: 60%;
+  padding: 30px 34px;
+  box-shadow: -1px 0 white inset, 0 0 13px rgba(0,0,0,.21);
+  position: relative;
+  z-index: 1;
 }
 
 header {
