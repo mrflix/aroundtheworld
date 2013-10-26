@@ -5,10 +5,6 @@ link(rel='stylesheet', href='/css/style.css')
 mixin uppercased(name)
   transport.charAt(0).toLocaleUpperCase() + transport.slice(1)
 
-mixin field(type, id, label)
-  label(for=id)= label
-  input(type=type, name=id, id=id)
-
 .arche
   header
     h1= trip.name
@@ -19,14 +15,25 @@ mixin field(type, id, label)
       form
         h2 New Journey
 
-        +field('text', 'from', 'From')
-        +field('text', 'to', 'To')
+        label(for="from") From
+        .from.inputStyle.hasLocalization
+          input(id="from")
+          .localizeMe
+            | localize
+            .icon.localize
+
+        label(for="to") To
+        .to.inputStyle.hasLocalization
+          input(id="to")
+          .localizeMe 
+            | localize
+            .icon.localize
 
         label(for="transport") Transport
         .select.inputStyle
-          .transport.icon.car
+          transports = ["car", "bus", "bike", "train", "foot", "plane", "ship"]
+          .transport.icon.car(data-classes=transports)
           select(id="transport")
-            transports = ["car", "bus", "bike", "train", "foot", "plane", "ship"]
             each transport in transports
               option(value="#{transport}")= transport
           .arrow ◀︎
@@ -39,7 +46,7 @@ mixin field(type, id, label)
           | Images
         input(id="images", type="file", multiple, accept="image/*")
 
-        .button.publish 
+        .button.publish.callToAction
           span.icon.tick
           | Publish
     each section in trip.sections
@@ -59,3 +66,6 @@ mixin field(type, id, label)
                 img(src="#{image.url}")
                 if image.caption
                   figcaption= image.caption
+
+script(src='/js/zepto.min.js')
+script(src='/js/trip.js')

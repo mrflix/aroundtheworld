@@ -121,15 +121,13 @@ header {
 label {
   display: block;
   font-size: 13px;
-  margin: 0 0 8px;
+  margin: 0 0 6px;
 }
 
 select, 
-input,
 textarea,
 .button,
 .inputStyle {
-  padding: 0 8px;
   font: inherit;
   color: black;
   border-style: solid;
@@ -137,11 +135,11 @@ textarea,
   outline: none;
 }
 
-input,
 textarea,
 .button,
 .inputStyle {
-  margin-bottom: 13px;
+  padding: 0 8px;
+  margin-bottom: 18px;
 }
 
 select, 
@@ -155,11 +153,11 @@ input,
           appearance: none;
 }
 
-input,
 .inputStyle {
   border-width: 1px;
   border-top: none;
   border-right: none;
+  position: relative;
 }
 
 input {
@@ -169,7 +167,36 @@ input {
   padding-top: 8px;
   font-size: 100%;
   display: block;
+  border: none;
+  outline: none;
 }
+
+.hasLocalization {
+  display: -webkit-flex;
+  padding: 0;
+}
+  .hasLocalization input {
+    width: auto;
+    -webkit-flex: 1;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .hasLocalization .localizeMe {
+    line-height: 40px;
+    font-size: 13px;
+    color: hsl(198,34%,75%);
+    cursor: pointer;
+    padding: 0 7px 0 12px;
+  }
+    .hasLocalization .localizeMe:hover {
+      color: hsl(198,30%,42%); /* orange hsl(31,70%,76%) */
+    }
+    .hasLocalization .localizeMe:hover .icon {
+      opacity: 1;
+    }
+  .hasLocalization .localizeMe .icon {
+    margin: -2px 0 0 3px;
+  }
 
 select {
   vertical-align: top;
@@ -179,18 +206,13 @@ select {
   background: none;
 }
 .select {
-  position: relative;
   z-index: 1;
-  padding-left: 63px;
+  padding-left: 40px;
 }
-  .transport.icon {
-    width: 50px;
-    height: 50px;
-    background: url(../images/transport.png);
-  }
   .select .icon {
     position: absolute;
-    left: 0;
+    left: 8px;
+    top: 8px;
   }
   .select .arrow {
     right: 8px;
@@ -199,6 +221,9 @@ select {
     font-size: 13px;
     color: hsl(198,34%,75%);
     -webkit-transform: rotate(-90deg);
+       -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+            transform: rotate(-90deg);
     z-index: -1;
   }
 
@@ -223,6 +248,34 @@ textarea {
   background: none;
   width: 100%;
   text-align: center;
+  color: hsl(198,21%,34%);
   border-width: 1px;
   margin-bottom: 8px;
+  cursor: pointer;
 }
+  .button .icon {
+    margin: -4px 3px 0 0;
+  }
+  .button.callToAction {
+    background: hsl(198,55%,95%);
+  }
+
+.icon {
+  width: 25px;
+  height: 25px;
+  background: url(../images/icons.png);
+  background-size: 175px 50px;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: .5;
+}
+  .icon.bus      { background-position: 0          0; }
+  .icon.train    { background-position: -25px      0; }
+  .icon.car      { background-position: -50px      0; }
+  .icon.foot     { background-position: -100px     0; }
+  .icon.localize { background-position: -125px     0; }
+  .icon.tick     { background-position: -150px     0; }
+  .icon.plane    { background-position: -25px  -25px; }
+  .icon.ship     { background-position: -50px  -25px; }
+  .icon.bike     { background-position: -100px -25px; }
+  .icon.plus     { background-position: -125px -25px; }
