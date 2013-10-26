@@ -1,0 +1,28 @@
+{
+  "trip": [
+    {
+      "type": "destination",
+      "name": "Stockholm"
+    },
+    {
+      "type": "destination",
+      "name": "Gothenburg"
+    },
+    {
+      "type": "destination",
+      "name": "Copenhagen"
+    },
+    {
+      "type": "destination",
+      "name": "Malmö"
+    },
+    {
+      "type": "destination",
+      "name": "Gotland"
+    },
+    {
+      "type": "destination",
+      "name": "Stockholm"
+    }
+  ]
+}
