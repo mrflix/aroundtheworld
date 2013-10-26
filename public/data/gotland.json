@@ -1,7 +1,4 @@
 {
-  "options": {
-    "transport": ["car", "bike", "train", "foot", "plane", "ship"]
-  },
   "trip": {
     "name": "Baltic Sea Tour 2013",
     "description": "During the summer of 2013 two guys cycled around the Baltic Sea. They started in Norrköping, Sweden and also end the trip there. 2 months, 9 countries and 8000 km.",
@@ -12,7 +9,7 @@
         "lat": 58.587745,
         "long": 16.192421
       },
-      "description": "1) Valid passport: CHECK \n2) Application form: CHECK \n3) A photo: CHECK\n4) Invitation letter: CHECK\n5) Copy of the passport: CHECK\n6) Copy of the insurance policy: CHECK\nThere is nothing that can stop us. Appointment at the consulate on Friday at 10am.",
+      "story": "1) Valid passport: CHECK \n2) Application form: CHECK \n3) A photo: CHECK\n4) Invitation letter: CHECK\n5) Copy of the passport: CHECK\n6) Copy of the insurance policy: CHECK\nThere is nothing that can stop us. Appointment at the consulate on Friday at 10am.",
       "gallery": [{
         "url": "/images/dummy/passport.jpg"
       }, {
@@ -32,7 +29,7 @@
         "long": 18.064910
       },
       "transport": "bike",
-      "description": "Headwind till Nyköping, downwind from there till Stockholm. 2 punctures. Started at 10.45, which was rather late, so we were in Nyköping at 3, and still had 100km before us. Arrived finally 21.15 at Karro. ",
+      "story": "Headwind till Nyköping, downwind from there till Stockholm. 2 punctures. Started at 10.45, which was rather late, so we were in Nyköping at 3, and still had 100km before us. Arrived finally 21.15 at Karro. ",
       "gallery": [{
         "caption": "The first puncture just before Nyköping",
         "url": "/images/dummy/tire.jpg"
@@ -47,7 +44,7 @@
         "lat": 59.328930,
         "long": 18.064910
       },
-      "description": "Beautiful city. All those nice islands. The gammal stan is great to visit – reminded me of Venice.",
+      "story": "Beautiful city. All those nice islands. The gammal stan is great to visit – reminded me of Venice.",
       "gallery": []
     }]
   }
