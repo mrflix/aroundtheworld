@@ -17,7 +17,7 @@ html, body {
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 1.625;
+  line-height: 1.45;
   color: hsl(198,5%,50%);
   background: hsl(198,8%,98%);
   margin: 0;
@@ -66,7 +66,7 @@ p {
 }
 
 .arche {
-  width: 712px;
+  max-width: 712px;
   margin: 0 34px;
   padding: 30px 0;
 }
@@ -89,6 +89,7 @@ header {
 }
 .article p {
   white-space: pre-wrap;
+  line-height: 1.625;
 }
 .meta {
   color: #bbb;
@@ -112,7 +113,6 @@ header {
 }
 
 .article.editor {
-  max-width: 400px;
   margin: 0;
   padding: 55px;
   border-bottom: 1px solid hsl(198,34%,90%);
@@ -124,29 +124,87 @@ label {
   margin: 0 0 8px;
 }
 
-input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid hsl(198,34%,90%);
-  border-top: none;
-  border-right: none;
-  appearance: none;
-  font-size: 100%;
-  display: block;
+select, 
+input,
+textarea,
+.button,
+.inputStyle {
+  padding: 0 8px;
+  font: inherit;
+  color: black;
+  border-style: solid;
+  border-color: hsl(198,34%,90%);
   outline: none;
+}
+
+input,
+textarea,
+.button,
+.inputStyle {
+  margin-bottom: 13px;
 }
 
 select, 
 input,
-textarea {
-  margin-bottom: 13px;
+.button {
+  height: 40px;
+  line-height: 40px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+      -ms-appearance: none;
+          appearance: none;
+}
+
+input,
+.inputStyle {
+  border-width: 1px;
+  border-top: none;
+  border-right: none;
+}
+
+input {
+  width: 100%;
+  line-height: 14px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  font-size: 100%;
+  display: block;
 }
 
 select {
   vertical-align: top;
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  background: none;
 }
+.select {
+  position: relative;
+  z-index: 1;
+  padding-left: 63px;
+}
+  .transport.icon {
+    width: 50px;
+    height: 50px;
+    background: url(../images/transport.png);
+  }
+  .select .icon {
+    position: absolute;
+    left: 0;
+  }
+  .select .arrow {
+    right: 8px;
+    top: 11px;
+    position: absolute;
+    font-size: 13px;
+    color: hsl(198,34%,75%);
+    -webkit-transform: rotate(-90deg);
+    z-index: -1;
+  }
 
 textarea {
+  padding-top: 3px;
+  padding-bottom: 3px;
   display: block;
   width: 100%;
   min-height: 300px;
@@ -159,17 +217,12 @@ textarea {
   padding: 0;
   margin: 0;
 }
-
-button, 
+ 
 .button {
-  font-size: 100%;
-  font-weight: normal;
-  font-family: inherit;
   color: inherit;
   background: none;
   width: 100%;
-  height: 30px;
-  line-height: 30px;
   text-align: center;
-  border: 1px solid rgba(0,0,0,.13);
+  border-width: 1px;
+  margin-bottom: 8px;
 }
