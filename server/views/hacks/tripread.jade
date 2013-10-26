@@ -2,31 +2,46 @@ doctype 5
 title Around the World
 link(rel='stylesheet', href='/css/style.css')
 
+mixin uppercased(name)
+  transport.charAt(0).toLocaleUpperCase() + transport.slice(1)
+
+mixin field(type, id, label)
+  label(for=id)= label
+  input(type=type, name=id, id=id)
+
 .arche
   header
     h1= trip.name
     p= trip.description
 
   .articles
-    form.article.editor
+    article.article.editor
+      form
         h2 New Journey
 
-        label(for="from") From
-        input(id="from")
-
-        label(for="to") To
-        input(id="to")
+        +field('text', 'from', 'From')
+        +field('text', 'to', 'To')
 
         label(for="transport") Transport
-        select(id="transport")
-          each transport in options.transport
-            option(value="#{transport}")= transport
-        textarea
-        
-        label.button.addImages(for="images") + Images
+        .select.inputStyle
+          .transport.icon.car
+          select(id="transport")
+            transports = ["car", "bus", "bike", "train", "foot", "plane", "ship"]
+            each transport in transports
+              option(value="#{transport}")= transport
+          .arrow ◀︎
+
+        label(for="story") Story
+        textarea(id="story")
+
+        label.button.addImages(for="images")
+          span.icon.plus
+          | Images
         input(id="images", type="file", multiple, accept="image/*")
 
-        .button.publish Publish
+        .button.publish 
+          span.icon.tick
+          | Publish
     each section in trip.sections
       article(class="article #{section.type}")
         case section.type
@@ -36,7 +51,7 @@ link(rel='stylesheet', href='/css/style.css')
             h2 From #{section.from.name} to #{section.to.name}
             .meta
               span.transport By #{section.transport}
-        p= section.description
+        p= section.story
         if section.gallery
           .gallery
             each image in section.gallery
