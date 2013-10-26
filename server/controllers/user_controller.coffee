@@ -29,7 +29,7 @@ class UserController extends Controller
         # User successfully created, log it in and redirect
         req.login user, (err) ->
           return res.json({message: 'Could not log you in, try again!'}, 500) if err
-          res.redirect("/user/#{req.user.values.username}")
+          res.redirect("/#{req.user.values.username}")
 
   # Log the user out and redirect
   logout: (req, res) ->

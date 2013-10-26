@@ -1,11 +1,13 @@
 StaticSitesController = require('./controllers/static_sites_controller').StaticSitesController
 HackController        = require('./controllers/hack_controller').HackController
 UserController        = require('./controllers/user_controller').UserController
+TripController        = require('./controllers/trip_controller').TripController
 
 module.exports = (app, auth) ->
   statics = new StaticSitesController auth
   user    = new UserController auth
   hacks   = new HackController auth
+  trip    = new TripController auth
 
   # render the index page
   app.get   '/', statics.index
@@ -25,5 +27,10 @@ module.exports = (app, auth) ->
 
   app.get   '/logout', user.logout
 
+  # trips
+  app.get   '/user/:user_id/trip', trip.create
+
   app.get   '/me', user.redirectToProfileIfLoggedIn
-  app.get   '/user/:username', user.show
+
+  app.get   '/:username', user.show
+  app.get   '/:username/:trip_slug', trip.show

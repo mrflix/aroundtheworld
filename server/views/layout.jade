@@ -10,11 +10,10 @@ html(lang='en')
     title Around the world
     if locals.csrf_token
       meta(name='csrf_token', content=csrf_token())
-    link(rel='stylesheet', href='/css/app.css')
+    link(rel='stylesheet', href='/css/style.css')
     if user
       script.
         window.user_data = !{JSON.stringify(user.toJSON())};
-    script(src='/js/app.js')
 
   body
 

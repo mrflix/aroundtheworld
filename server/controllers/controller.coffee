@@ -30,9 +30,15 @@ class Controller
 
   redirectToProfileIfLoggedIn: (req, res, next) =>
     if req.isAuthenticated()
-      res.redirect "/user/#{req.user.values.username}"
+      res.redirect "/#{req.user.values.username}"
     else
       next()
+
+  400: (message, req, res) ->
+    if req.xhr
+      res.json {error: 'Invalid request'}, 400
+    else
+      res.status(400).render 'errors/400', message: message
 
   401: (req, res) ->
     if req.xhr
@@ -44,7 +50,7 @@ class Controller
     if req.xhr
       res.json {error: 'Not found'}, 404
     else
-      res.status(404).render 'errors/401', 404
+      res.status(404).render 'errors/404', 404
 
   500: (req, res) ->
     if req.xhr
