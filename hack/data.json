@@ -1,0 +1,52 @@
+{
+  "trip": [
+    {
+      "type": "destination",
+      "name": "Stockholm",
+      "location" : {
+        "lat":  59.328930,
+        "long": 18.064910
+      }
+    },
+    {
+      "type": "destination",
+      "name": "Gothenburg",
+      "location" : {
+        "lat":  57.708870,
+        "long": 11.974560
+      }
+    },
+    {
+      "type": "destination",
+      "name": "Copenhagen",
+      "location" : {
+        "lat":  55.676097,
+        "long": 12.568337
+      }
+    },
+    {
+      "type": "destination",
+      "name": "Malmö",
+      "location" : {
+        "lat":  55.604981,
+        "long": 13.003822
+      }
+    },
+    {
+      "type": "destination",
+      "name": "Gotland",
+      "location" : {
+        "lat":  57.468412,
+        "long": 18.486745
+      }
+    },
+    {
+      "type": "destination",
+      "name": "Stockholm",
+      "location" : {
+        "lat":  59.328930,
+        "long": 18.064910
+      }
+    }
+  ]
+}
