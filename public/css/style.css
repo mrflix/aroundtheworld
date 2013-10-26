@@ -2,6 +2,11 @@
   margin: 0px;
   padding: 0px;
 }
+*, *:before, *:after {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+ }
 html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -49,10 +54,15 @@ h1 {
   h1 + p {
     font-size: 22px;
   }
+h2 {
+  font-size: 34px;
+  line-height: 1;
+  font-weight: normal;
+  margin: 0 0 21px;
+  color: #333;
+}
 p {
-  font-size: 18px;
-  line-height: 30px;
-  margin: 0 0 30px;
+  margin: 0 0 21px;
 }
 
 .arche {
@@ -63,4 +73,103 @@ p {
 
 header {
   padding: 21px 55px;
+}
+
+.articles {
+  background: white;
+  border: 1px solid hsl(198,34%,90%);
+  border-radius: 3px;
+  box-shadow: 0 0 0 6px hsl(198,40%,95%), 0 1px 0 6px white;
+}
+.article {
+  margin: 55px;
+}
+.journey h2 {
+  margin-bottom: 0;
+}
+.article p {
+  white-space: pre-wrap;
+}
+.meta {
+  color: #bbb;
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 6px;
+}
+
+.gallery {
+  margin: 21px 0;
+}
+.gallery figure {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.gallery figcaption {
+  margin: 8px 5px 13px;
+}
+.gallery img {
+  width: 100%;
+}
+
+.article.editor {
+  max-width: 400px;
+  margin: 0;
+  padding: 55px;
+  border-bottom: 1px solid hsl(198,34%,90%);
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid hsl(198,34%,90%);
+  border-top: none;
+  border-right: none;
+  appearance: none;
+  font-size: 100%;
+  display: block;
+  outline: none;
+}
+
+select, 
+input,
+textarea {
+  margin-bottom: 13px;
+}
+
+select {
+  vertical-align: top;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 300px;
+}
+
+.addImages + input[type=file] {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+button, 
+.button {
+  font-size: 100%;
+  font-weight: normal;
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,.13);
 }

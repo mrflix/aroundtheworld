@@ -4,9 +4,43 @@ link(rel='stylesheet', href='/css/style.css')
 
 .arche
   header
-    h1 Australia 2013
-    p A travelog of my journey along the east coste of the big island in summer 2013. 1984 kilometers (1203 miles) in 32 days.
+    h1= trip.name
+    p= trip.description
+
   .articles
-    each section in trip
-      article
-        h2= section.name
+    form.article.editor
+        h2 New Journey
+
+        label(for="from") From
+        input(id="from")
+
+        label(for="to") To
+        input(id="to")
+
+        label(for="transport") Transport
+        select(id="transport")
+          each transport in options.transport
+            option(value="#{transport}")= transport
+        textarea
+        
+        label.button.addImages(for="images") + Images
+        input(id="images", type="file", multiple, accept="image/*")
+
+        .button.publish Publish
+    each section in trip.sections
+      article(class="article #{section.type}")
+        case section.type
+          when 'destination'
+            h2= section.location.name
+          when 'journey'
+            h2 From #{section.from.name} to #{section.to.name}
+            .meta
+              span.transport By #{section.transport}
+        p= section.description
+        if section.gallery
+          .gallery
+            each image in section.gallery
+              figure
+                img(src="#{image.url}")
+                if image.caption
+                  figcaption= image.caption
