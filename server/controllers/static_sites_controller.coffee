@@ -13,4 +13,6 @@ class StaticSitesController extends Controller
 
   index: (req, res) -> res.render 'statics/index'
 
+  privacy: (req, res) -> res.render 'statics/privacy'
+
 exports.StaticSitesController = StaticSitesController

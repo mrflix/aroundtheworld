@@ -8,6 +8,9 @@ module.exports = (app, auth) ->
   # render the index page
   app.get   '/', statics.index
 
+  # static pages
+  app.get   '/privacy', statics.privacy
+
   # users / login / register / OAuth providers
   app.get   '/register', statics.register
   app.post  '/register', user.register
