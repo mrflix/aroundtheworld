@@ -49,6 +49,8 @@ class Model
         return done(error) if error
         done null, response
 
+  toJSON: -> @values
+
   # removeAll: (docs, done) ->
   #   deferred = Q.defer()
     

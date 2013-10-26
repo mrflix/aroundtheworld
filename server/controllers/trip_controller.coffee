@@ -15,7 +15,7 @@ class TripController extends Controller
 
       Trip.findByUserIdAndSlug user.values._id, tripSlug, (err, trip) =>
         return @['404'](req, res) unless trip
-        res.json trip.values
+        res.render 'trips/show', {trip: trip.values, tripOwner: user.values}
 
   create: (req, res) =>
     trip = req.body.trip

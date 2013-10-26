@@ -5,7 +5,6 @@ _s      = require('underscore.string')
 class Trip extends Model
 
   @findByUserIdAndSlug: (userId, slug, done) ->
-    console.log [userId, slug]
     @db().view 'trips/byUserIdAndSlug', {startkey:[userId, slug], endkey: [userId, slug]}, (err, res) =>
       return done({ message: 'Could not find trip' }) if err or res.length is 0
       done null, new @(res?[0]?.value)
