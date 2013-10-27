@@ -245,7 +245,8 @@ textarea {
   padding-bottom: 3px;
   display: block;
   width: 100%;
-  min-height: 300px;
+  min-height: 200px;
+  resize: vertical;
 }
 
 .addImages + input[type=file] {

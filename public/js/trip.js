@@ -1,5 +1,66 @@
+//
+//  publish
+//  =======
+//
+
+function publish(){
+  var $dialog = $(this).parents('.dialog').first();
+  var type = $dialog.attr('data-type');
+  var section;
+
+  switch(type){
+    case 'destination':
+      section = {
+        type: 'destination',
+        location: {
+          name: $('#destination').val()
+        },
+        story: $('#destination-story').val()
+      }
+      break;
+    case 'journey':
+      section = {
+        type: 'journey',
+        from: {
+          name: $('#from').val()
+        },
+        to: {
+          name: $('#to').val()
+        },
+        transport: $('#transport').val(),
+        story: $('#journey-story').val()
+      }
+      break;
+  }
+
+  if(section){
+    var url = '/user/' + user_data._id + '/trip/' + trip._id;
+
+    $.ajax({
+      type: 'PUT', 
+      url: url,
+      data: trip,
+      dataType: 'json',
+      headers: { 'x-csrf-token': $('meta[name=csrf_token]').attr('content') },
+      success: function(newDocument){
+        trip._rev = newDocument._rev;
+        console.log("success");
+      }
+    });
+  }
+}
+
+$('.publish').click(publish);
 
 
+//
+//  get location
+//  ============
+//
+
+function getLocation(){
+
+}
 
 //
 //  transport icon changer
@@ -31,14 +92,6 @@ $('.button.add').click(function(){
 
   $('.dialog.' + targetViewName).find('input').first().focus();
 });
-
-
-// var userData = {
-//   last: {
-//     city: "",
-//     transport: "car"
-//   }
-// };
 
 //
 //  scroll map controll

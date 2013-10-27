@@ -15,7 +15,7 @@ block content
           .button.add.destination(data-action-show='destination')
             .icon.fa.fa-plus
             | Add Destination
-        form.dialog.journey
+        form.dialog.journey(data-type='journey')
           h2 New Journey
 
           label(for="from") From
@@ -41,8 +41,8 @@ block content
                 option(value="#{transport}")= transport
             .arrow ◀︎
 
-          label(for="story") Story
-          textarea(id="story")
+          label(for="journey-story") Story
+          textarea(id="journey-story")
 
           .uploadGallery
             each section in trip.sections
@@ -57,15 +57,15 @@ block content
                     figcaption
                       input.inputStyle(placeholder="+ Add Caption", name="caption")
 
-          label.button.addImages(for="images")
+          label.button.addImages(for="journey-images")
             span.icon.fa.fa-plus
             | Images
-          input(id="images", type="file", multiple, accept="image/*")
+          input(id="journey-images", type="file", multiple, accept="image/*")
 
           .button.publish.callToAction
             .icon.fa.fa-check
             | Publish
-        form.dialog.destination
+        form.dialog.destination(data-type='destination')
           h2 New Destination
 
           label(for="destination") Destination
@@ -75,15 +75,15 @@ block content
               | localize
               .pixel.icon.localize
 
-          label(for="story") Story
-          textarea(id="story")
+          label(for="destination-story") Story
+          textarea(id="destination-story")
 
           .uploadGallery
 
-          label.button.addImages(for="images")
+          label.button.addImages(for="destination-images")
             span.icon.fa.fa-plus
             | Images
-          input(id="images", type="file", multiple, accept="image/*")
+          input(id="destination-images", type="file", multiple, accept="image/*")
 
           .button.publish.callToAction
             .icon.fa.fa-check
