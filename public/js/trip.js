@@ -99,8 +99,7 @@ $('.button.add').click(function(){
 //
 
 var $articles = $('.article:not(.admin)');
-var oldSectionIndex = -1;
-showMapSection(0, -1);
+var oldMapIndex = -1;
 
 $(window).on('scroll', function(event){
   var activeIndex;
@@ -121,36 +120,38 @@ $(window).on('scroll', function(event){
     }
   });
 
-  // initial scroll (after reload)
-  if(oldSectionIndex === undefined){
-
-  }
-  if(activeIndex !== oldSectionIndex){
-    showMapSection(activeIndex, oldSectionIndex);
-    oldSectionIndex = activeIndex;
+  if(activeIndex !== undefined && activeIndex !== oldMapIndex){
+    selectOnMap(activeIndex);
   }
 });
 
-function showMapSection(newIndex, oldIndex){
+function selectOnMap(index){
   // add class to dom element
-  $articles.eq(newIndex).addClass('highlight');
-  $articles.eq(oldIndex).removeClass('highlight');
+  $articles.eq(index).addClass('highlight');
+  $articles.eq(oldMapIndex).removeClass('highlight');
 
-  if(newIndex > oldIndex){
-    if(newIndex > 0){
-      map.removeLayer(highlights[oldIndex]);
-      map.addLayer(actives[oldIndex]);
+  if(index > oldMapIndex){
+    if(map.hasLayer(highlights[oldMapIndex]))
+      map.removeLayer(highlights[oldMapIndex]);
+
+    // traveres up because of browser refresh scroll event
+    for(var i = index-1; i >= 0; i--){
+      if(!map.hasLayer(actives[i]))
+        map.addLayer(actives[i]);
+      if(map.hasLayer(inactives[i]))
+        map.removeLayer(inactives[i]);
     }
 
-    map.removeLayer(inactives[newIndex]);
-    map.addLayer(highlights[newIndex]);
+    if(map.hasLayer(inactives[index]))
+      map.removeLayer(inactives[index]);
+    map.addLayer(highlights[index]);
   } else {
-    map.removeLayer(actives[newIndex]);
-    map.addLayer(highlights[newIndex]);
-
-    if(oldIndex >= 0){
-      map.removeLayer(highlights[oldIndex]);
-      map.addLayer(inactives[oldIndex]);
-    }
+    map.removeLayer(actives[index]);
+    map.addLayer(highlights[index]);
+    
+    map.removeLayer(highlights[oldMapIndex]);
+    map.addLayer(inactives[oldMapIndex]);
   }
+
+  oldMapIndex = index;
 }
