@@ -16,18 +16,37 @@ block content
   button Save
 
   script.
-    $('button').click(function(){
-      var testData = {trip: {name: 'test-trip'}};
+    $('.button.create').click(function(){
+      // trip has only name or something in it
+      trip = { name: 'new felix' };
+
       var url = '/user/' + user_data._id + '/trip';
 
       $.ajax({
         type: 'POST', 
         url: url,
-        data: testData,
+        data: trip,
         dataType: 'json',
         headers: { 'x-csrf-token': $('meta[name=csrf_token]').attr('content') },
         success: function(newDocument){
-          console.log(newDocument);
+          trip._id = newDocument._id;
+          trip._rev = newDocument._rev;
+        }
+      });
+
+    });
+
+    $('.button.save').click(function(){
+      var url = '/user/' + user_data._id + '/trip/' + trip._id;
+
+      $.ajax({
+        type: 'PUT', 
+        url: url,
+        data: trip,
+        dataType: 'json',
+        headers: { 'x-csrf-token': $('meta[name=csrf_token]').attr('content') },
+        success: function(newDocument){
+          trip._rev = newDocument._rev;
         }
       });
 

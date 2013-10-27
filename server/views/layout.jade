@@ -1,22 +1,16 @@
-!!! 5
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
-    meta(name='viewport', content='width=device-width', initial-scale='1.0')
-    meta(name='description', content='')
-    meta(name='author', content='')
-    base(href='/')
-    title Around the world
-    if locals.csrf_token
-      meta(name='csrf_token', content=csrf_token())
-    link(rel='stylesheet', href='/css/style.css')
-    if user
-      script.
-        window.user_data = !{JSON.stringify(user.toJSON())};
-    script(src="/js/zepto.min.js")
+doctype 5
+meta(charset='utf-8')
+title Around the World
+link(rel='stylesheet', href='/css/font-awesome.min.css')
+link(rel='stylesheet', href='/css/leaflet.css')
+link(rel='stylesheet', href='/css/style.css') 
+meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+meta(name='viewport', content='width=device-width', initial-scale='1.0')
+script(src='/js/zepto.min.js')
+if locals.csrf_token
+  meta(name='csrf_token', content=csrf_token())
+if user
+  script.
+    window.user_data = !{JSON.stringify(user.toJSON())};
 
-  body
-
-    #content
-      block content
+block content

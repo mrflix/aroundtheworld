@@ -3,8 +3,6 @@ title Around the World
 link(rel='stylesheet', href='/css/font-awesome.min.css')
 link(rel='stylesheet', href='/css/leaflet.css')
 link(rel='stylesheet', href='/css/style.css')
-script.
-  var trip = !{JSON.stringify(trip)};
 
 mixin uppercased(name)
   transport.charAt(0).toLocaleUpperCase() + transport.slice(1)
@@ -117,6 +115,8 @@ mixin uppercased(name)
 .mapHolder
   #map
 
+script.
+  var trip = !{JSON.stringify(trip)};
 script(src='/js/zepto.min.js')
 script(src='/js/leaflet.js')
 script(src='/js/map.js')

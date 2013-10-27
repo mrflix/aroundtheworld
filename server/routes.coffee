@@ -32,7 +32,7 @@ module.exports = (app, auth) ->
 
   # trips
   app.post  '/user/:user_id/trip', trip.create
-  app.put   '/user/:user_id/trip/trip_id', trip.edit
+  app.put   '/user/:user_id/trip/:trip_id', trip.edit
 
   app.get   '/me', user.redirectToProfileIfLoggedIn
 
