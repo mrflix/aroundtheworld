@@ -24,7 +24,7 @@ class TripController extends Controller
 
     Trip.edit trip._id, trip, (err, trip) =>
       return @['500']('Missing trip information in request body', req, res) if err
-      return @['404']('Missing trip information in request body', req, res) unless trip
+      return @['404'](req, res) unless trip
 
       res.json trip
 
