@@ -1,9 +1,30 @@
 doctype 5
 title Around the World - upload
 link(rel='stylesheet', href='/css/style.css')
+style.
+  form{
+    height: 170px;
+    width: 500px;
+    background-color: red;
+  }
+
+  .dz-success-mark, .dz-error-mark{ display: none }
+
+script(src="js/zepto.min.js")
+script(src="js/dropzone.min.js")
+script.
+  Dropzone.options.upload = {
+    thumbnailWidth: 400,
+    addRemoveLinks: false,
+    init: function() {
+      this.on("success", function(file, response) {
+        console.log('image path', response.imagePath);
+      });
+    }
+  };
+
+  
 
 body
-  form(method="post", enctype="multipart/form-data", action="/upload")
-    input(type="file", name="file")
-    input(type="submit", value="Submit")
+  form(method="post", enctype="multipart/form-data", action="/upload", class="dropzone", id="upload")
     input(name='_csrf', type='hidden', value=csrf_token())
