@@ -5,6 +5,7 @@ Trip         = require('../models/trip')
 class TripController extends Controller
   before: ->
     'create': @ensureAuthenticated
+    'edit': @ensureAuthenticated
 
   show: (req, res) =>
     username = req.params.username
@@ -22,11 +23,15 @@ class TripController extends Controller
 
     return @['400']('Missing trip information in request body', req, res) unless trip
 
-    Trip.edit trip._id, trip, (err, trip) =>
-      return @['500']('Missing trip information in request body', req, res) if err
-      return @['404'](req, res) unless trip
+    Trip.get trip._id, (err, theRealTrip) =>
+      return @['404'](req, res) unless theRealTrip
+      return @['401'](req, res) if theRealTrip.values.user_id isnt req.user.values._id
 
-      res.json trip
+      Trip.edit trip._id, trip, (err, trip) =>
+        return @['500']('Missing trip information in request body', req, res) if err
+        return @['404'](req, res) unless trip
+
+        res.json trip
 
   create: (req, res) =>
     tripData = req.body
