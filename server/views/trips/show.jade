@@ -7,6 +7,27 @@ block content
       p= trip.description
 
     .articles
+      each section in trip.sections
+        article(class="article #{section.type}")
+          case section.type
+            when 'destination'
+              h2
+                .pointer
+                = section.location.name
+            when 'journey'
+              h2 
+                .pointer
+                | From #{section.from.name} to #{section.to.name}
+              .meta
+                span.transport By #{section.transport}
+          p= section.story
+          if section.gallery
+            .gallery
+              each image in section.gallery
+                figure
+                  img(src="#{image.url}")
+                  if image.caption
+                    figcaption= image.caption
       article.article.admin(data-show='new')
         .controls.dialog.new
           .button.add.journey(data-action-show='journey')
@@ -17,19 +38,22 @@ block content
             | Add Destination
         form.dialog.journey(data-type='journey')
           h2 New Journey
+          
+          .exit
+            .icon.fa.fa-times
 
           label(for="from") From
           .from.inputStyle.hasLocalization
             input(id="from")
             .localizeMe
-              | localize
+              | pick on map
               .pixel.icon.localize
 
           label(for="to") To
           .to.inputStyle.hasLocalization
             input(id="to")
             .localizeMe 
-              | localize
+              | pick on map
               .pixel.icon.localize
 
           label(for="transport") Transport
@@ -67,12 +91,15 @@ block content
             | Publish
         form.dialog.destination(data-type='destination')
           h2 New Destination
+          
+          .exit
+            .icon.fa.fa-times
 
           label(for="destination") Destination
           .from.inputStyle.hasLocalization
             input(id="destination")
             .localizeMe
-              | localize
+              | pick on map
               .pixel.icon.localize
 
           label(for="destination-story") Story
@@ -88,24 +115,10 @@ block content
           .button.publish.callToAction
             .icon.fa.fa-check
             | Publish
-      each section in trip.sections
-        article(class="article #{section.type}")
-          case section.type
-            when 'destination'
-              h2= section.location.name
-            when 'journey'
-              h2 From #{section.from.name} to #{section.to.name}
-              .meta
-                span.transport By #{section.transport}
-          p= section.story
-          if section.gallery
-            .gallery
-              each image in section.gallery
-                figure
-                  img(src="#{image.url}")
-                  if image.caption
-                    figcaption= image.caption
     .mapHolder
+      .pointer
+      .hint 
+        | Select your point on the map
       #map
 
     script.

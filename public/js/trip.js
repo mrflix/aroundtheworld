@@ -13,7 +13,9 @@ function publish(){
       section = {
         type: 'destination',
         location: {
-          name: $('#destination').val()
+          name: $('#destination').val(),
+          lat: parseFloat($('#destination').attr('data-lat')),
+          lng: parseFloat($('#destination').attr('data-lng'))
         },
         story: $('#destination-story').val()
       }
@@ -22,10 +24,14 @@ function publish(){
       section = {
         type: 'journey',
         from: {
-          name: $('#from').val()
+          name: $('#from').val(),
+          lat: parseFloat($('#from').attr('data-lat')),
+          lng: parseFloat($('#from').attr('data-lng'))
         },
         to: {
-          name: $('#to').val()
+          name: $('#to').val(),
+          lat: parseFloat($('#to').attr('data-lat')),
+          lng: parseFloat($('#to').attr('data-lng'))
         },
         transport: $('#transport').val(),
         story: $('#journey-story').val()
@@ -58,8 +64,43 @@ $('.publish').click(publish);
 //  ============
 //
 
-function getLocation(){
+function getPositionFromName(name, callback){
+  $.getJSON('http://maps.google.com/maps/api/geocode/json?address='+ name +'&sensor=false', callback);
+}
 
+$('#from, #to, #destination').on({
+  'blur': getCoordinates,
+  'focus': clearInputFeedback
+});
+
+function clearInputFeedback(){
+  $(this).parents('.inputStyle').first().removeClass('error success');
+}
+
+function getCoordinates(){
+  var _this = $(this);
+  var name = _this.val();
+  var $holder = _this.parents('.inputStyle').first();
+  var callback = function(data){
+    var _class = 'error';
+    var lat = '';
+    var lng = '';
+
+    if(data.status == 'OK'){
+      _class = 'success';
+      lat = data.results[0].geometry.location.lat;
+      lng = data.results[0].geometry.location.lng;
+    }
+
+      $holder.addClass(_class);
+      _this.attr({
+        'data-lat': lat,
+        'data-lng': lng
+      });
+  };
+
+  if(name)
+    getPositionFromName(name, callback);
 }
 
 //
@@ -91,6 +132,19 @@ $('.button.add').click(function(){
   $adminView.attr('data-show', targetViewName);
 
   $('.dialog.' + targetViewName).find('input').first().focus();
+});
+
+$('.admin .exit').click(function(){
+  var $view = $(this).parents('.dialog').first();
+
+  // clear data
+  $view.find('input, textarea').val("");
+
+  // TODO: clear gallery
+
+
+  // switch view
+  $adminView.attr('data-show', 'new');
 });
 
 //

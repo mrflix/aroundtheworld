@@ -75,6 +75,49 @@ p {
   #map {
     height: 100%;
   }
+  .hint {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    padding: 13px 0;
+    text-align: center;
+    color: hsl(40,55%,21%);
+  }
+  .hint, 
+  .pointer {
+    background: hsl(40,100%,50%);
+    display: none;
+  }
+  #map .pointer {
+    margin: -8px 0 0 -8px;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+  }
+  .pointer {
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    position: absolute;
+  }
+    .pointer:after {
+      position: absolute;
+      content: '';
+      left:   -8px;
+      right:  -8px;
+      top:    -8px;
+      bottom: -8px;
+      background: hsla(40,100%,50%,.13);
+      border: 2px solid hsl(40,100%,50%);
+      border-radius: 100%;
+    }
+  .action-pick .hint,
+  .action-pick .pointer {
+    display: block;
+  }
 
 .arche {
   width: 60%;
@@ -100,6 +143,16 @@ header {
 .article.journey h2 {
   margin-bottom: 0;
 }
+.article h2 {
+  position: relative;
+}
+.article.highlight h2 .pointer {
+  left: -18px;
+  top: 16px;
+  display: block;
+  width: 0;
+  height: 0;
+}
 .article p {
   white-space: pre-wrap;
   line-height: 1.625;
@@ -123,12 +176,6 @@ header {
 }
 .gallery img {
   width: 100%;
-}
-
-.article.admin {
-  margin: 0;
-  padding: 55px;
-  border-bottom: 1px solid hsl(198,34%,90%);
 }
 
 label {
@@ -184,6 +231,13 @@ input {
   outline: none;
 }
 
+.error {
+  border-color: hsl(0,100%,50%);
+}
+.error input {
+  color: hsl(0,100%,50%);
+}
+
 .hasLocalization {
   display: -webkit-flex;
   padding: 0;
@@ -208,7 +262,7 @@ input {
       opacity: 1;
     }
   .hasLocalization .localizeMe .icon {
-    margin-left: 8px;
+    margin-left: 3px;
   }
 
 select {
@@ -326,7 +380,25 @@ textarea {
   }
 
 .admin {
+  position: relative;
+  margin: 0;
+  padding: 55px;
+  border-top: 1px solid hsl(198,34%,90%);
 }
+.admin .exit {
+  position: absolute;
+  padding: 60px 55px 50px;
+  right: 0;
+  top: 0;
+  opacity: 0.5;
+  cursor: pointer;
+}
+  .admin .exit:hover {
+    opacity: 1;
+  }
+  .admin .exit .icon {
+    font-size: 30px;
+  }
 
 .admin .controls {
   overflow: hidden;

@@ -7,7 +7,7 @@
       "location": {
         "name": "Norrköping",
         "lat": 58.587745,
-        "long": 16.192421
+        "lng": 16.192421
       },
       "story": "1) Valid passport: CHECK \n2) Application form: CHECK \n3) A photo: CHECK\n4) Invitation letter: CHECK\n5) Copy of the passport: CHECK\n6) Copy of the insurance policy: CHECK\nThere is nothing that can stop us. Appointment at the consulate on Friday at 10am.",
       "gallery": [{
@@ -21,12 +21,12 @@
       "from": {
         "name": "Norrköping",
         "lat": 58.587745,
-        "long": 16.192421
+        "lng": 16.192421
       },
       "to": {
         "name": "Stockholm",
         "lat": 59.328930,
-        "long": 18.064910
+        "lng": 18.064910
       },
       "transport": "bike",
       "story": "Headwind till Nyköping, downwind from there till Stockholm. 2 punctures. Started at 10.45, which was rather late, so we were in Nyköping at 3, and still had 100km before us. Arrived finally 21.15 at Karro. ",
@@ -42,7 +42,7 @@
       "location": {
         "name": "Stockholm",
         "lat": 59.328930,
-        "long": 18.064910
+        "lng": 18.064910
       },
       "story": "And Karro waited for us with the best lasagne and cake. It feels so good to eat such a nice dinner after such a day. Thank you so much. ",
       "gallery": [{
@@ -54,12 +54,12 @@
       "from": {
         "name": "Stockholm",
         "lat": 59.328930,
-        "long": 18.064910
+        "lng": 18.064910
       },
       "to": {
         "name": "Lövstabruk",
         "lat": 60.398450,
-        "long": 17.883740
+        "lng": 17.883740
       },
       "transport": "bike",
       "story": "Left from Bandhagen at 8.45am, but it took us 2.5 hours to leave Stockholm, but then with a new tire. Arrived 9.30pm in beautiful Löfstabruk, where we tent for the first time. ",
@@ -75,8 +75,105 @@
       "location": {
         "name": "Lövstabruk",
         "lat": 60.398450,
-        "long": 17.883740
+        "lng": 17.883740
       }
+    }, {
+      "type": "journey",
+      "from": {
+        "name": "Lövstabruk",
+        "lat": 60.398450,
+        "lng": 17.883740
+      },
+      "to": {
+        "name": "Aldenstam",
+        "lat": 61.278955,
+        "lng": 17.218151
+      },
+      "transport": "bike",
+      "story": "We started at 9:30am, and had a very nice headwind almost all the way. We got payback from Mr wind from yesterday's downwind. We stopped 2 times, first in Gävle, second in Axmar bruk. We arrived 19.15 at the weekend house Aldenstam, where we were welcomed with the most important food: sweets.",
+      "gallery": [{
+        "caption": "The first dip in the Baltic Sea. More to come.",
+        "url": "/images/dummy/sea.jpg"
+      }]
+    }, {
+      "type": "destination",
+      "location": {
+        "name": "Aldenstam",
+        "lat": 61.278955,
+        "lng": 17.218151
+      },
+      "gallery": [{
+        "caption": "Our wonderful hosts with the wonderful dinner (dessert is not yet on the table). For this it's already worth to cycle.",
+        "url": "/images/dummy/friends.jpg"
+      }]
+    }, {
+      "type": "journey",
+      "from": {
+        "name": "Aldenstam",
+        "lat": 61.278955,
+        "lng": 17.218151
+      },
+      "to": {
+        "name": "Fagervik",
+        "lat": 62.503611,
+        "lng": 17.405278
+      },
+      "transport": "bike",
+      "story": "The first day when we finally started in normal time, at 8am. But it took me the half day till I could overcome the trauma of getting up at 6. Because that feeling is not possible to overcome when it's only 11.15 am and you have cycled a very big part of the day. Otherwise this day we got very tired in our brains, because we were driving next to a big road, and that takes a lot of concentration. On the other hand our legs are not that tired. We arrived at 19.45, ate a wonderful dinner, looked at the Sea from the house and went to bed.",
+      "gallery": [{
+        "url": "/images/dummy/fagervik.jpg"
+      }]
+    }, {
+      "type": "destination",
+      "location": {
+        "name": "Fagervik",
+        "lat": 62.503611,
+        "lng": 17.405278
+      },
+      "gallery": [{
+        "caption": "Jamming session before sleep",
+        "url": "/images/dummy/jam.jpg"
+      }, {
+        "caption": "chicken dinner :) there is always a big smile on my face when we eat so delicious food",
+        "url": "/images/dummy/dinner.jpg"
+      }]
+    }, {
+      "type": "journey",
+      "from": {
+        "name": "Fagervik",
+        "lat": 62.503611,
+        "lng": 17.405278
+      },
+      "to": {
+        "name": "Faresta",
+        "lat": 63.350000,
+        "lng": 18.766667
+      },
+      "transport": "bike",
+      "gallery": [{
+        "caption": "The start of the day.",
+        "url": "/images/dummy/rain.jpg"
+      }, {
+        "caption": "That's the end of the day.",
+        "url": "/images/dummy/end.jpg"
+      }]
+    }, {
+      "type": "destination",
+      "location": {
+        "name": "Faresta",
+        "lat": 63.350000,
+        "lng": 18.766667
+      },
+      "gallery": [{
+        "caption": "After dinner, we ate a delicious brownie self made by Frida",
+        "url": "/images/dummy/brownie.jpg"
+      }, {
+        "caption": "The break down list: a bike computer and a kick stand",
+        "url": "/images/dummy/break.jpg"
+      }, {
+        "caption": "When Zalán came, I told him that he won't get sunburn from the swedish sun (because I don't get any). I was wrong. Tomorrow we will by some cream.",
+        "url": "/images/dummy/leg.jpg"
+      }]
     }]
   }
 }
