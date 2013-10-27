@@ -37,11 +37,6 @@ passport.use new LocalStrategy
   passwordField: 'password'
 , authenticate
 
-passport.use new TwitterStrategy
-  consumerKey: config.twitterKey
-  consumerSecret: config.twitterSecret
-, authenticateTwitter
-
 # (De-)Serialization of users
 
 # only the user's id is important
