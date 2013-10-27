@@ -1,4 +1,3 @@
-Q           = require 'q'
 connection  = require('../config/connection_config').config.createConnection()
 
 class Model
