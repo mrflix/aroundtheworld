@@ -1,3 +1,11 @@
+# Screenshot
+
+![Screenshot of a trip](http://f.cl.ly/items/3Z331u1W2j0l363P0C38/Screen%20Shot%202013-10-27%20at%2010.22.30.png)
+
+![Screenshot of the destination-editor](http://f.cl.ly/items/3D0G3i0j1D250L3G2d3Y/Screen%20Shot%202013-10-27%20at%2010.26.25.png)
+
+![Screenshot of the journey-editor](http://f.cl.ly/items/3o1s2C3W3T2V1n2l3z3L/Screen%20Shot%202013-10-27%20at%2010.28.33.png)
+
 # Setup
 
 - install node.js from <http://nodejs.org/>
