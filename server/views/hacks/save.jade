@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+
+  p.
+    Speichern ist ein einfacher POST-request an "/user/USERID/trip"
+  p.
+    Man muss vorher nur die richtige URL bauen und das csrf-token anhängen
+  p.
+    Die Response beinhaltet das geupdatete Dokument mit _rev und _id
+  p.
+    In der Console ist dann das neue Dokument
+
+  button Save
+
+  script.
+    $('button').click(function(){
+      var testData = {trip: {name: 'test-trip'}};
+      var url = '/user/' + user_data._id + '/trip';
+
+      $.ajax({
+        type: 'POST', 
+        url: url,
+        data: testData,
+        dataType: 'json',
+        headers: { 'x-csrf-token': $('meta[name=csrf_token]').attr('content') },
+        success: function(newDocument){
+          console.log(newDocument);
+        }
+      });
+
+    });

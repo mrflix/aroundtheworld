@@ -17,6 +17,7 @@ module.exports = (app, auth) ->
   # static pages
   app.get   '/privacy', statics.privacy
   app.get   '/hack/tripread', hacks.tripread
+  app.get   '/hack/save', hacks.save
 
   # users / login / register / OAuth providers
   app.get   '/register', statics.register
