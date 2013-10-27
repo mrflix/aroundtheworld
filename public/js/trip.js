@@ -1,9 +1,27 @@
+
+
+
+//
+//  transport icon changer
+//  ======================
+//
+//  changes the transport icon according to the selected transport option
+//
+
 var $transportIcon = $('.transport.icon');
 var transportClasses = JSON.parse($transportIcon.attr('data-classes')).join(" ");
 
 $('#transport').change(function(){
   $transportIcon.removeClass(transportClasses).addClass(this.value);
 });
+
+
+//
+//  admin view control
+//  ==================
+//
+//  controls the admin buttons' ('new journey') interaction with the help of css
+//
 
 var $adminView = $('.admin');
 
@@ -14,12 +32,18 @@ $('.button.add').click(function(){
   $('.dialog.' + targetViewName).find('input').first().focus();
 });
 
-var userData = {
-  last: {
-    city: "",
-    transport: "car"
-  }
-};
+
+// var userData = {
+//   last: {
+//     city: "",
+//     transport: "car"
+//   }
+// };
+
+//
+//  scroll map controll
+//  ===================
+//
 
 var $articles = $('.article:not(.admin)');
 var oldSectionIndex = -1;
