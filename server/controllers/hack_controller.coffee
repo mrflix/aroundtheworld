@@ -8,4 +8,7 @@ class HackController extends Controller
     dummyData = JSON.parse(dummyData)
     res.render "hacks/tripread", dummyData
 
+  upload: (req, res) ->
+    res.render 'hacks/upload'
+
 exports.HackController = HackController

@@ -1,0 +1,9 @@
+doctype 5
+title Around the World - upload
+link(rel='stylesheet', href='/css/style.css')
+
+body
+  form(method="post", enctype="multipart/form-data", action="/upload")
+    input(type="file", name="file")
+    input(type="submit", value="Submit")
+    input(name='_csrf', type='hidden', value=csrf_token())

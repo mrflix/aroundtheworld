@@ -21,8 +21,6 @@ class TripController extends Controller
     trip = req.body.trip
     userId = req.user.values._id
 
-    trip = { name: 'test trip 2011' }
-
     return @['400']('Missing trip information in request body', req, res) unless trip
     return @['400']('Missing user information in request body', req, res) unless userId
 
