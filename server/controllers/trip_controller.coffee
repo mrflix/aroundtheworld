@@ -17,8 +17,19 @@ class TripController extends Controller
         return @['404'](req, res) unless trip
         res.render 'trips/show', {trip: trip.values, tripOwner: user.values}
 
+  edit: (req, res) =>
+    trip = req.body
+
+    return @['400']('Missing trip information in request body', req, res) unless trip
+
+    Trip.edit trip._id, trip, (err, trip) =>
+      return @['500']('Missing trip information in request body', req, res) if err
+      return @['404']('Missing trip information in request body', req, res) unless trip
+
+      res.json trip
+
   create: (req, res) =>
-    trip = req.body.trip
+    trip = req.body
     userId = req.user.values._id
 
     return @['400']('Missing trip information in request body', req, res) unless trip

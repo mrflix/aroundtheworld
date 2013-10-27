@@ -30,7 +30,8 @@ module.exports = (app, auth) ->
   app.get   '/logout', user.logout
 
   # trips
-  app.get   '/user/:user_id/trip', trip.create
+  app.post  '/user/:user_id/trip', trip.create
+  app.put   '/user/:user_id/trip/trip_id', trip.edit
 
   app.get   '/me', user.redirectToProfileIfLoggedIn
 
