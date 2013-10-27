@@ -27,7 +27,6 @@
 - in `atw_data`, create a new document:
     {
       "_id": "_design/trips",
-      "_rev": "4-655028ad941d185682cec99364f22c71",
       "language": "javascript",
       "views": {
           "byUserIdAndSlug": {
