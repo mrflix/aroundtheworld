@@ -13,8 +13,15 @@ mixin uppercased(name)
     p= trip.description
 
   .articles
-    article.article.editor
-      form
+    article.article.admin(data-show='new')
+      .controls.dialog.new
+        .button.hasIcon.add.journey 
+          .icon.plus
+          | Add Journey
+        .button.hasIcon.add.destination
+          .icon.plus
+          | Add Destination
+      form.dialog.journey
         h2 New Journey
 
         label(for="from") From
@@ -42,6 +49,19 @@ mixin uppercased(name)
 
         label(for="story") Story
         textarea(id="story")
+
+        .uploadGallery
+          each section in trip.sections
+            if section.gallery
+              each image in section.gallery
+                figure
+                  .ratioHolder
+                    .imageHolder
+                      .controls
+                        .action.delete.icon
+                      .image(style="background-image: url(#{image.url})")
+                  figcaption
+                    input.inputStyle(placeholder="+ Add Caption", name="caption")
 
         label.button.addImages(for="images")
           span.icon.plus

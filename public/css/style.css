@@ -125,7 +125,7 @@ header {
   width: 100%;
 }
 
-.article.editor {
+.article.admin {
   margin: 0;
   padding: 55px;
   border-bottom: 1px solid hsl(198,34%,90%);
@@ -168,8 +168,8 @@ input,
 
 .inputStyle {
   border-width: 1px;
-  border-top: none;
-  border-right: none;
+  border-top-width: 0;
+  border-right-width: 0;
   position: relative;
 }
 
@@ -265,13 +265,82 @@ textarea {
   border-width: 1px;
   margin-bottom: 8px;
   cursor: pointer;
+  padding: 0 13px;
+  overflow: hidden;
 }
   .button .icon {
     margin: -4px 3px 0 0;
   }
-  .button.callToAction {
+  .button.callToAction,
+  .button:hover {
     background: hsl(198,55%,95%);
   }
+  .button.hasIcon {
+    padding-left: 7px;
+  }
+  .button:active {
+    line-height: 42px;
+  }
+
+.uploadGallery {
+  display: -webkit-flex;
+  -webkit-flex-wrap: wrap;
+}
+.uploadGallery figure {
+  -webkit-flex: 1 0 40%;
+  display: inline-block;
+}
+.uploadGallery figure:nth-child(2n-1) {
+  margin-right: 8px;
+}
+  .uploadGallery .ratioHolder {
+    width: 100%;
+    position: relative;
+  }
+  .uploadGallery .ratioHolder:before {
+    content: "";
+    display: block;
+    padding-top: 75%;
+  }
+  .uploadGallery .imageHolder .image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+  }
+  .uploadGallery input {
+    font-size: 14px;
+    height: 30px;
+    line-height: 14px;
+    padding-bottom: 2px;
+    padding-top: 5px;
+    border-right-width: 1px;
+  }
+
+.admin .controls {
+  overflow: hidden;
+}
+  .admin.controls .button {
+    display: inline-block;
+    width: auto;
+    float: right;
+    margin-bottom: 0;
+  }
+  .admin.controls .button:not(:last-child) {
+    margin-left: 8px;
+  }
+
+.admin.show-new > .dialog:not(.new) {
+  height: 0;
+  overflow: hidden;
+}
+.admin.show-new {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
 
 .icon {
   width: 25px;
