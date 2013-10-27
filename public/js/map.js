@@ -5,20 +5,23 @@ L.tileLayer('http://{s}.tile.cloudmade.com/f34c3e0ee41e49c4a9df3a13fd3e5c6b/8590
   maxZoom: 18
 }).addTo(map);
 
-var circleInactiveOptions = {color:'#444', fillOpacity: 0.8};
-var circleActiveOptions = {fillOpacity: 0.8};
-var lineInactiveOptions = {color: '#000', opacity: 0.21, weight: 5};
-var lineActiveOptions = {opacity: 0.8, weight: 2};
-var lineHighlightOptions = {weight: 8};
+var circleInactiveOptions = {color:'#6b92a3', opacity: 0, fillOpacity: 0.3};
+var circleActiveOptions = {color:'#3782a3', opacity: 0, fillOpacity: 0.6};
+
+var lineInactiveOptions = {color: '#6b92a3', opacity: 0.3, weight: 5};
+var lineActiveOptions = {color:'#3782a3', opacity: 0.6, weight: 8};
+var lineHighlightOptions = {color:'#3782a3', opacity: 1, weight: 8};
 
 var points = [];
 var inactives = [];
 var actives = [];
 var highlights = [];
 
-for (var i = 0; i < sections.length; i++) {
-  var section = sections[i];
+for (var i = 0; i < trip.sections.length; i++) {
+  addSectionToMap(trip.sections[i]); 
+}
 
+function addSectionToMap(section, shouldRefresh){
   var inactive;
   var active;
   var highlight;
@@ -30,7 +33,11 @@ for (var i = 0; i < sections.length; i++) {
 
     inactive = L.circleMarker(point, circleInactiveOptions).setRadius(8);
     active = L.circleMarker(point, circleActiveOptions).setRadius(8);
-    highlight = L.circleMarker(point).setRadius(15);
+    highlight = L.layerGroup([
+      L.circleMarker(point, {color:'#3782a3', opacity: 0, fillOpacity: 1}).setRadius(8),
+      L.circleMarker(point, {color:'#3782a3', fill: '#3782a3', opacity: 1, fillOpacity: 0.3}).setRadius(15)
+    ]);
+
   }
 
   if (section.type === 'journey') {
@@ -47,20 +54,14 @@ for (var i = 0; i < sections.length; i++) {
   highlights.push(highlight);
 
   inactive.addTo(map);
+
+  if(shouldRefresh)
+    fitMap()
 }
 
-var bounds = new L.LatLngBounds(points);
-map.fitBounds(bounds);
+function fitMap(){
+  var bounds = new L.LatLngBounds(points);
+  map.fitBounds(bounds, { padding: [21, 21] });
+}
 
-var highlightIndex = -1;
-// $('#next').click(function(){
-//   if (highlightIndex >= 0) {
-//     map.removeLayer(highlights[highlightIndex]);
-//     map.addLayer(actives[highlightIndex]);
-//   }
-
-//   highlightIndex++;
-
-//   // map.removeLayer(inactives[highlightIndex]);
-//   map.addLayer(highlights[highlightIndex]);
-// });
+fitMap();

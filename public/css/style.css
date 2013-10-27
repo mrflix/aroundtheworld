@@ -12,7 +12,7 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 html, body {
-  height: 100%;
+  min-height: 100%;
 }
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -97,7 +97,7 @@ header {
 .article {
   margin: 55px;
 }
-.journey h2 {
+.article.journey h2 {
   margin-bottom: 0;
 }
 .article p {
@@ -208,7 +208,7 @@ input {
       opacity: 1;
     }
   .hasLocalization .localizeMe .icon {
-    margin: -2px 0 0 3px;
+    margin-left: 8px;
   }
 
 select {
@@ -269,14 +269,11 @@ textarea {
   overflow: hidden;
 }
   .button .icon {
-    margin: -4px 3px 0 0;
+    margin-right: 8px;
   }
   .button.callToAction,
   .button:hover {
     background: hsl(198,55%,95%);
-  }
-  .button.hasIcon {
-    padding-left: 7px;
   }
   .button:active {
     line-height: 42px;
@@ -302,7 +299,7 @@ textarea {
     display: block;
     padding-top: 75%;
   }
-  .uploadGallery .imageHolder .image {
+  .uploadGallery .image {
     position: absolute;
     top: 0;
     right: 0;
@@ -311,25 +308,36 @@ textarea {
     background-size: cover;
     background-position: center;
   }
+  .uploadGallery .controls {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+  }
   .uploadGallery input {
     font-size: 14px;
-    height: 30px;
+    height: 36px;
     line-height: 14px;
     padding-bottom: 2px;
     padding-top: 5px;
     border-right-width: 1px;
+    border: none;
   }
+
+.admin {
+  display: none;
+}
 
 .admin .controls {
   overflow: hidden;
 }
-  .admin.controls .button {
+  .admin .controls .button {
     display: inline-block;
     width: auto;
     float: right;
     margin-bottom: 0;
   }
-  .admin.controls .button:not(:last-child) {
+  .admin .controls .button:not(:last-child) {
     margin-left: 8px;
   }
 
@@ -342,7 +350,13 @@ textarea {
   padding-bottom: 13px;
 }
 
-.icon {
+.icon.fa {
+  opacity: 0.5;
+  font-size: 14px;
+  color: #6a92a4;
+}
+
+.pixel.icon {
   width: 25px;
   height: 25px;
   background: url(../images/icons.png);

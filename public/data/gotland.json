@@ -44,8 +44,39 @@
         "lat": 59.328930,
         "long": 18.064910
       },
-      "story": "Beautiful city. All those nice islands. The gammal stan is great to visit – reminded me of Venice.",
-      "gallery": []
+      "story": "And Karro waited for us with the best lasagne and cake. It feels so good to eat such a nice dinner after such a day. Thank you so much. ",
+      "gallery": [{
+        "caption": "Karro",
+        "url": "/images/dummy/karro.jpg"
+      }]
+    }, {
+      "type": "journey",
+      "from": {
+        "name": "Stockholm",
+        "lat": 59.328930,
+        "long": 18.064910
+      },
+      "to": {
+        "name": "Lövstabruk",
+        "lat": 60.398450,
+        "long": 17.883740
+      },
+      "transport": "bike",
+      "story": "Left from Bandhagen at 8.45am, but it took us 2.5 hours to leave Stockholm, but then with a new tire. Arrived 9.30pm in beautiful Löfstabruk, where we tent for the first time. ",
+      "gallery": [{
+        "caption": "The first puncture just before Nyköping",
+        "url": "/images/dummy/tire.jpg"
+      }, {
+        "caption": "The second puncture",
+        "url": "/images/dummy/puncture.jpg"
+      }]
+    }, {
+      "type": "destination",
+      "location": {
+        "name": "Lövstabruk",
+        "lat": 60.398450,
+        "long": 17.883740
+      }
     }]
   }
 }

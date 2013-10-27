@@ -1,9 +1,10 @@
 doctype 5
 title Around the World
+link(rel='stylesheet', href='/css/font-awesome.min.css')
 link(rel='stylesheet', href='/css/leaflet.css')
 link(rel='stylesheet', href='/css/style.css')
 script.
-  var sections = !{JSON.stringify(trip.sections)};
+  var trip = !{JSON.stringify(trip)};
 
 mixin uppercased(name)
   transport.charAt(0).toLocaleUpperCase() + transport.slice(1)
@@ -16,11 +17,11 @@ mixin uppercased(name)
   .articles
     article.article.admin(data-show='new')
       .controls.dialog.new
-        .button.hasIcon.add.journey 
-          .icon.plus
+        .button.add.journey
+          .icon.fa.fa-plus
           | Add Journey
-        .button.hasIcon.add.destination
-          .icon.plus
+        .button.add.destination
+          .icon.fa.fa-plus
           | Add Destination
       form.dialog.journey
         h2 New Journey
@@ -30,19 +31,19 @@ mixin uppercased(name)
           input(id="from")
           .localizeMe
             | localize
-            .icon.localize
+            .pixel.icon.localize
 
         label(for="to") To
         .to.inputStyle.hasLocalization
           input(id="to")
           .localizeMe 
             | localize
-            .icon.localize
+            .pixel.icon.localize
 
         label(for="transport") Transport
         .select.inputStyle
           transports = ["car", "bus", "bike", "train", "foot", "plane", "ship"]
-          .transport.icon.car(data-classes=transports)
+          .transport.pixel.icon.car(data-classes=transports)
           select(id="transport")
             each transport in transports
               option(value="#{transport}")= transport
@@ -58,19 +59,19 @@ mixin uppercased(name)
                 figure
                   .ratioHolder
                     .imageHolder
-                      .controls
-                        .action.delete.icon
+                      .delete
+                        .icon.fa.fa-trash-o
                       .image(style="background-image: url(#{image.url})")
                   figcaption
                     input.inputStyle(placeholder="+ Add Caption", name="caption")
 
         label.button.addImages(for="images")
-          span.icon.plus
+          span.icon.fa.fa-plus
           | Images
         input(id="images", type="file", multiple, accept="image/*")
 
         .button.publish.callToAction
-          span.icon.tick
+          .icon.fa.fa-check
           | Publish
     each section in trip.sections
       article(class="article #{section.type}")
