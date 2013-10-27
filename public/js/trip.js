@@ -5,6 +5,15 @@ $('#transport').change(function(){
   $transportIcon.removeClass(transportClasses).addClass(this.value);
 });
 
+var $adminView = $('.admin');
+
+$('.button.add').click(function(){
+  var targetViewName = $(this).attr('data-action-show');
+  $adminView.attr('data-show', targetViewName);
+
+  $('.dialog.' + targetViewName).find('input').first().focus();
+});
+
 var userData = {
   last: {
     city: "",
@@ -18,8 +27,6 @@ showMapSection(0, -1);
 
 $(window).on('scroll', function(event){
   var activeIndex;
-
-  console.dir(event);
 
   $articles.each(function(i, el){
     var isAboveHalfWindow = ($(el).offset().top - $(window).scrollTop()) < $(window).height()/2;

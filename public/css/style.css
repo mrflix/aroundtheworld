@@ -325,7 +325,6 @@ textarea {
   }
 
 .admin {
-  display: none;
 }
 
 .admin .controls {
@@ -341,13 +340,14 @@ textarea {
     margin-left: 8px;
   }
 
-.admin.show-new > .dialog:not(.new) {
-  height: 0;
-  overflow: hidden;
-}
-.admin.show-new {
+.admin[data-show=new] {
   padding-top: 13px;
   padding-bottom: 13px;
+}
+.admin:not([data-show=new]) > .dialog.new,
+.admin:not([data-show=journey]) > .dialog.journey,
+.admin:not([data-show=destination]) > .dialog.destination {
+  display: none;
 }
 
 .icon.fa {

@@ -17,10 +17,10 @@ mixin uppercased(name)
   .articles
     article.article.admin(data-show='new')
       .controls.dialog.new
-        .button.add.journey
+        .button.add.journey(data-action-show='journey')
           .icon.fa.fa-plus
           | Add Journey
-        .button.add.destination
+        .button.add.destination(data-action-show='destination')
           .icon.fa.fa-plus
           | Add Destination
       form.dialog.journey
@@ -54,7 +54,7 @@ mixin uppercased(name)
 
         .uploadGallery
           each section in trip.sections
-            if section.gallery
+            if false && section.gallery
               each image in section.gallery
                 figure
                   .ratioHolder
@@ -64,6 +64,29 @@ mixin uppercased(name)
                       .image(style="background-image: url(#{image.url})")
                   figcaption
                     input.inputStyle(placeholder="+ Add Caption", name="caption")
+
+        label.button.addImages(for="images")
+          span.icon.fa.fa-plus
+          | Images
+        input(id="images", type="file", multiple, accept="image/*")
+
+        .button.publish.callToAction
+          .icon.fa.fa-check
+          | Publish
+      form.dialog.destination
+        h2 New Destination
+
+        label(for="destination") Destination
+        .from.inputStyle.hasLocalization
+          input(id="destination")
+          .localizeMe
+            | localize
+            .pixel.icon.localize
+
+        label(for="story") Story
+        textarea(id="story")
+
+        .uploadGallery
 
         label.button.addImages(for="images")
           span.icon.fa.fa-plus
